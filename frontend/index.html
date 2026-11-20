@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kashif ThreatLens</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav>
+
+        <div class="logo">Kashif ThreatLens</div>
+
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="history.html">History</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+
+    </nav>
+
+    <section class="hero">
+
+        <h1>Kashif ThreatLens</h1>
+
+        <p>
+            Upload and analyze files for potential cyber threats,
+            malware detection and security assessment.
+        </p>
+
+        <div class="upload-area">
+
+            <input type="file" id="fileInput">
+
+            <button id="scanBtn">
+                Scan File
+            </button>
+
+            <button id="downloadReportBtn">
+                Download Report
+            </button>
+
+        </div>
+
+    </section>
+
+    <section class="result-section">
+
+        <div class="result-card">
+
+            <h2>Scan Results</h2>
+
+            <p id="fileName">
+                File: No File Selected
+            </p>
+
+            <p id="fileSize">
+                Size: --
+            </p>
+
+            <p id="threatStatus">
+                Status: Waiting
+            </p>
+
+            <p id="threatScore">
+                Threat Score: 0%
+            </p>
+
+            <p id="fileHash">
+                SHA-256 Hash: --
+            </p>
+
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+
+            <p id="scanMessage">
+                Ready To Scan
+            </p>
+
+        </div>
+
+    </section>
+
+    <section class="stats">
+
+        <div class="stat-card">
+            <h2>1250+</h2>
+            <p>Files Scanned</p>
+        </div>
+
+        <div class="stat-card">
+            <h2>52</h2>
+            <p>Threats Found</p>
+        </div>
+
+        <div class="stat-card">
+            <h2>1198</h2>
+            <p>Safe Files</p>
+        </div>
+
+        <div class="stat-card">
+            <h2>SHA256</h2>
+            <p>Hash Analysis</p>
+        </div>
+
+    </section>
+
+    <footer>
+        © 2026 Kashif ThreatLens | Cyber Security Platform
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

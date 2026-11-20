@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scan History - Kashif ThreatLens</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Segoe UI,sans-serif;
+        }
+
+        body{
+            background:#081120;
+            color:white;
+        }
+
+        nav{
+            background:#0f172a;
+            padding:20px 40px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+        }
+
+        .logo{
+            font-size:28px;
+            font-weight:bold;
+            color:#38BDF8;
+        }
+
+        nav ul{
+            display:flex;
+            gap:25px;
+            list-style:none;
+        }
+
+        nav a{
+            color:white;
+            text-decoration:none;
+            font-weight:500;
+        }
+
+        nav a:hover{
+            color:#38BDF8;
+        }
+
+        h1{
+            text-align:center;
+            color:#38BDF8;
+            margin:40px 0 20px;
+        }
+
+        .btn-container{
+            text-align:center;
+            margin-bottom:20px;
+        }
+
+        .clear-btn{
+            background:#ef4444;
+            color:white;
+            border:none;
+            padding:12px 25px;
+            border-radius:8px;
+            cursor:pointer;
+            font-weight:bold;
+        }
+
+        .clear-btn:hover{
+            background:#dc2626;
+        }
+
+        table{
+            width:90%;
+            margin:auto;
+            border-collapse:collapse;
+            background:#1e293b;
+            border-radius:10px;
+            overflow:hidden;
+        }
+
+        th{
+            background:#38BDF8;
+            padding:15px;
+        }
+
+        td{
+            padding:15px;
+            border-bottom:1px solid #334155;
+            text-align:center;
+        }
+
+        .danger{
+            color:#ef4444;
+            font-weight:bold;
+        }
+
+        .safe{
+            color:#22c55e;
+            font-weight:bold;
+        }
+
+        .suspicious{
+            color:#f59e0b;
+            font-weight:bold;
+        }
+
+        .empty{
+            text-align:center;
+            margin-top:40px;
+            color:#94a3b8;
+            font-size:18px;
+        }
+
+        @media(max-width:768px){
+
+            nav{
+                flex-direction:column;
+                gap:15px;
+            }
+
+            nav ul{
+                flex-wrap:wrap;
+                justify-content:center;
+            }
+
+            table{
+                width:95%;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <nav>
+
+        <div class="logo">
+            Kashif ThreatLens
+        </div>
+
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="history.html">History</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+
+    </nav>
+
+    <h1>Scan History</h1>
+
+    <div class="btn-container">
+
+        <button
+            id="clearHistoryBtn"
+            class="clear-btn">
+
+            Clear History
+
+        </button>
+
+    </div>
+
+    <table>
+
+        <thead>
+
+            <tr>
+                <th>File Name</th>
+                <th>Threat Score</th>
+                <th>Status</th>
+                <th>Date</th>
+            </tr>
+
+        </thead>
+
+        <tbody id="historyTable">
+
+        </tbody>
+
+    </table>
+
+    <p id="emptyMessage" class="empty"></p>
+
+    <script>
+
+        const history =
+            JSON.parse(
+                localStorage.getItem(
+                    "scanHistory"
+                )
+            ) || [];
+
+        const table =
+            document.getElementById(
+                "historyTable"
+            );
+
+        const emptyMessage =
+            document.getElementById(
+                "emptyMessage"
+            );
+
+        if(history.length === 0){
+
+            emptyMessage.innerHTML =
+                "No Scan History Available";
+
+        }
+
+        history.reverse().forEach(scan => {
+
+            let className = "";
+
+            if(scan.status === "Safe"){
+
+                className = "safe";
+
+            }
+            else if(
+                scan.status ===
+                "Suspicious"
+            ){
+
+                className =
+                "suspicious";
+
+            }
+            else{
+
+                className =
+                "danger";
+
+            }
+
+            table.innerHTML += `
+
+            <tr>
+
+                <td>${scan.file}</td>
+
+                <td>${scan.score}%</td>
+
+                <td class="${className}">
+                    ${scan.status}
+                </td>
+
+                <td>${scan.date}</td>
+
+            </tr>
+
+            `;
+
+        });
+
+        const clearBtn =
+        document.getElementById(
+            "clearHistoryBtn"
+        );
+
+        clearBtn.onclick = function(){
+
+            const confirmDelete =
+            confirm(
+                "Are you sure you want to clear all scan history?"
+            );
+
+            if(confirmDelete){
+
+                localStorage.removeItem(
+                    "scanHistory"
+                );
+
+                location.reload();
+
+            }
+
+        };
+
+    </script>
+
+</body>
+
+</html>

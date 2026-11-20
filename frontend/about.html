@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Kashif ThreatLens</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Segoe UI,sans-serif;
+        }
+
+        body{
+            background:#081120;
+            color:white;
+        }
+
+        nav{
+            background:#0f172a;
+            padding:20px 40px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            border-bottom:1px solid #1e293b;
+        }
+
+        .logo{
+            font-size:28px;
+            font-weight:bold;
+            color:#38BDF8;
+        }
+
+        nav ul{
+            display:flex;
+            gap:25px;
+            list-style:none;
+        }
+
+        nav a{
+            color:white;
+            text-decoration:none;
+            font-weight:500;
+        }
+
+        nav a:hover{
+            color:#38BDF8;
+        }
+
+        .container{
+            max-width:1000px;
+            margin:auto;
+            padding:60px 20px;
+        }
+
+        h1{
+            text-align:center;
+            color:#38BDF8;
+            margin-bottom:30px;
+        }
+
+        .card{
+            background:#1e293b;
+            padding:30px;
+            border-radius:20px;
+            line-height:1.8;
+            box-shadow:0 0 20px rgba(56,189,248,.2);
+        }
+
+        .card h2{
+            color:#38BDF8;
+            margin-bottom:15px;
+        }
+
+        .card p{
+            color:#e2e8f0;
+        }
+
+        footer{
+            text-align:center;
+            padding:30px;
+            margin-top:40px;
+            border-top:1px solid #1e293b;
+            color:#94a3b8;
+        }
+
+        @media(max-width:768px){
+
+            nav{
+                flex-direction:column;
+                gap:15px;
+            }
+
+            nav ul{
+                flex-wrap:wrap;
+                justify-content:center;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <nav>
+
+        <div class="logo">
+            Kashif ThreatLens
+        </div>
+
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="history.html">History</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+
+    </nav>
+
+    <div class="container">
+
+        <h1>About Kashif ThreatLens</h1>
+
+        <div class="card">
+
+            <h2>Project Overview</h2>
+
+            <p>
+                Kashif ThreatLens is a cybersecurity web application inspired by
+                VirusTotal. The platform allows users to upload files,
+                analyze threats, generate SHA-256 hashes, monitor
+                suspicious files and maintain scan history.
+            </p>
+
+            <br>
+
+            <h2>Key Features</h2>
+
+            <p>
+                ✅ File Upload Scanning<br>
+                ✅ SHA-256 Hash Generation<br>
+                ✅ Threat Score Detection<br>
+                ✅ Scan Progress Tracking<br>
+                ✅ Download Scan Reports<br>
+                ✅ History Management<br>
+                ✅ Clear History Feature
+            </p>
+
+            <br>
+
+            <h2>Technologies Used</h2>
+
+            <p>
+                HTML5<br>
+                CSS3<br>
+                JavaScript (ES6)<br>
+                Node.js<br>
+                Express.js<br>
+                Local Storage
+            </p>
+
+            <br>
+
+            <h2>Purpose</h2>
+
+            <p>
+                This project was developed for learning cybersecurity
+                concepts and demonstrates how file analysis systems
+                such as VirusTotal work at a basic level.
+            </p>
+
+            <br>
+
+            <h2>Developer</h2>
+
+            <p>
+                Developed by Kashif as a Computer Science Cybersecurity Project.
+            </p>
+
+        </div>
+
+    </div>
+
+    <footer>
+        © 2026 Kashif ThreatLens | Cyber Security Platform
+    </footer>
+
+</body>
+
+</html>
